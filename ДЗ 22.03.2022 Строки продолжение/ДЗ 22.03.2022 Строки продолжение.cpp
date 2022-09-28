@@ -49,13 +49,14 @@ void replace_word(char* str, char* strnew, size_t SIZE, int *px)  // функц�
         }
     }
 
+    cout << "\n Replacing a word in a sentence. Result: \n\n";
     for (size_t i = 0; i < *px; i++)                // новый массив со всеми изменениями
     {
         cout << strnew[i];
     }
 }
 
-void uppercase(char* strnew, char* symb, int p, size_t size)
+void uppercase(char* strnew, char* symb, int p, size_t size)  //  функция, которая заменяет первую букву каждого предложения на букву верхнего регистра
 {
     for (size_t i = 0; i < p; i++)          // массив строк
     {
@@ -77,7 +78,9 @@ void uppercase(char* strnew, char* symb, int p, size_t size)
                  }
         }
     }
-    cout << "\n\n";
+    cout << "\n\n Checking and editing a sentence for the correct spelling\n";
+    cout << " of the first letter of the first word. Result:\n\n";
+
     for (size_t i = 0; i < p; i++)                // новый массив со всеми изменениями
     {
         cout << strnew[i];
@@ -91,6 +94,8 @@ int main()
     const size_t size = 3;        
     char* symb = new char[size] {'.', '!', '?'};     // массив, который будет хранить знаки окончания предложения
 
+    cout << " Editing text entered by the user\n\n";
+
     puts("Enter text: \n");
     cin.getline(str, SIZE);         // ввод всего текста
 
@@ -98,10 +103,9 @@ int main()
     int* px = &p;   // указатель на переменную p, который будет меняться
     char* strnew = new char[SIZE];
 
-
-
     replace_word(str, strnew, SIZE, px);  //  функция, выполняющая замену одного слова на другое
-    uppercase(strnew, symb, p, size);
+    uppercase(strnew, symb, p, size);  //  функция, которая заменяет первую букву каждого предложения на букву верхнего регистра
+
 
     return 0;
 }
